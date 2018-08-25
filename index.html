@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta http-equiv="" content="text/html; charset=utf-8" />
+
+<link rel="stylesheet" href="tictactoe.css">
+
+<title>Tic-tac-toe</title>
+
+
+	<script type="text/javascript">
+				//var for boxes
+				var a=0;
+				var b=0;
+				var c=0;
+				var d=0;
+				var e=0;
+				var f=0;
+				var g=0;
+				var h=0;
+				var i=0;
+				
+				//var for whos turn
+				var whose_move=1;
+				//for id of block cliked
+				var temp='';
+				//for ok move
+				var ok=0;
+				
+				var who_won=0;
+				var count_player1_win=0;
+				var count_player2_win=0;
+				var count_ties=0;
+				
+				//functions
+				
+				function Move(c){
+					temp=c;
+					ok=0;
+					//for p1
+					if(whose_move==1){
+							check_space();
+							if(ok==1)
+							{	document.getElementById(c).src="o.jpg";
+								whose_move=2;
+								process();
+								//automatic move of computer
+								setTimeout("computer_move()",400);
+							}
+							else
+							{
+								alert("Box is already occupied .For help click How to play?");}
+						
+					}//if ends
+					//for p2
+					
+									}//whose_move ends
+									
+									
+	//fun checkspace
+	function check_space(){
+		if((temp=='A') && (a==0)){
+			ok=1;
+			if(whose_move==1) a=1;
+			if(whose_move==2) a=2;
+			}
+		if((temp=='B') && (b==0)){
+			ok=1;
+			if(whose_move==1) b=1;
+			if(whose_move==2) b=2;
+			}
+		if((temp=='C') && (c==0)){
+			ok=1;
+			if(whose_move==1) c=1;
+			if(whose_move==2) c=2;
+			}
+		if((temp=='D') && (d==0)){
+			ok=1;
+			if(whose_move==1) d=1;
+			if(whose_move==2) d=2;
+			}
+		if((temp=='E') && (e==0)){
+			ok=1;
+			if(whose_move==1) e=1;
+			if(whose_move==2) e=2;
+			}
+		if((temp=='F') && (f==0)){
+			ok=1;
+			if(whose_move==1) f=1;
+			if(whose_move==2) f=2;
+			}
+		if((temp=='G') && (g==0)){
+			ok=1;
+			if(whose_move==1) g=1;
+			if(whose_move==2) g=2;
+			}
+		if((temp=='H') && (h==0)){
+			ok=1;
+			if(whose_move==1) h=1;
+			if(whose_move==2) h=2;
+			}
+		if((temp=='I') && (i==0)){
+			ok=1;
+			if(whose_move==1) i=1;
+			if(whose_move==2) i=2;
+			}								
+		
+		
+		}//checkspace ends								
+		
+	function process()
+	{ check_win();
+	 	if (who_won==1)
+		{	alert("Cheers!! Player 1 wins this game! click on play again to try again!!");
+			count_player1_win ++;
+			document.getElementById('player1').value=count_player1_win;
+			}
+			
+		else if(who_won==2)
+		{	alert("Cheers!! Computer wins this game! click on play again to try again!!");
+			count_player2_win ++;
+			document.getElementById('player2').value=count_player2_win;
+			}
+		else if(who_won==3)
+		{	alert("Oh! Its a tie!! click on play again to try again!");
+			count_ties ++;
+			document.getElementById('ties').value=count_ties;
+			}
+	}//process ends		
+		
+
+	function check_win(){
+		if((a==1)&&(b==1)&&(c==1)) who_won=1;
+		if((d==1)&&(e==1)&&(f==1)) who_won=1;
+		if((g==1)&&(h==1)&&(i==1)) who_won=1;
+		if((a==1)&&(d==1)&&(g==1)) who_won=1;
+		if((e==1)&&(b==1)&&(h==1)) who_won=1;
+		if((c==1)&&(f==1)&&(i==1)) who_won=1;
+		if((i==1)&&(e==1)&&(a==1)) who_won=1;
+		if((c==1)&&(g==1)&&(e==1)) who_won=1;
+		
+		
+		if((a==2)&&(b==2)&&(c==2)) who_won=2;
+		if((d==2)&&(e==2)&&(f==2)) who_won=2;
+		if((g==2)&&(h==2)&&(i==2)) who_won=2;
+		if((a==2)&&(d==2)&&(g==2)) who_won=2;
+		if((e==2)&&(b==2)&&(h==2)) who_won=2;
+		if((c==2)&&(f==2)&&(i==2)) who_won=2;
+		if((i==2)&&(e==2)&&(a==2)) who_won=2;
+		if((c==2)&&(g==2)&&(e==2)) who_won=2;
+		
+		
+		if((a!=0)&&(b!=0)&&(c!=0)&&(d!=0)&&(e!=0)&&(f!=0)&&(g!=0)&&(h!=0)&&(i!=0)&&who_won==0)  who_won=3;
+		
+		
+		}//check winn end				
+				
+	//play again
+	function playAgain(){
+				whose_move=1;
+				a=0;
+				b=0;
+				c=0;
+				d=0;
+				e=0;
+				f=0;
+				g=0;
+				i=0;
+				h=0;
+				
+			
+				 temp='';
+				
+				 ok=0;
+				
+				 who_won=0;
+				
+		document.getElementById('A').src="";
+		document.getElementById('B').src="";
+		document.getElementById('C').src="";
+		document.getElementById('D').src="";
+		document.getElementById('E').src="";
+		document.getElementById('F').src="";
+		document.getElementById('G').src="";
+		document.getElementById('H').src="";
+		document.getElementById('I').src="";		
+		
+		}	//play againends		
+				
+	
+	function help(){
+		alert("Welcome to Tic-tac-toe! player1 plays as O's and Computer as X's. Select the square you want to put your variable into by clicking them. Any square can be occupied once. The first player to get 3 adjacent variables in a row coloumn or diagonal Wins!!.So watch out others move as well!! AND LET THE GAME BEGIN ");
+		
+		}		
+		
+		//function for server move
+	function computer_random_move(){
+		while(ok==0)
+		{ var rand_move=Math.floor(Math.random()*10)+1;
+			//alert(rand_move);
+			if (rand_move==1) temp="A";
+			if (rand_move==2) temp="B";
+			if (rand_move==3) temp="C";
+			if (rand_move==4) temp="D";
+			if (rand_move==5) temp="E";
+			if (rand_move==6) temp="F";
+			if (rand_move==7) temp="G";
+			if (rand_move==8) temp="H";
+			if (rand_move==9) temp="I";
+			
+			check_space();
+		}//while ends
+		
+		}//function computer_random_move ends			
+	function computer_against_move(){
+			if((a==1)&&(b==1)&&(c==0)&&(temp=='')) temp="C";
+			if((a==1)&&(b==0)&&(c==1)&&(temp=='')) temp="B";
+			if((a==0)&&(b==1)&&(c==1)&&(temp=='')) temp="A";
+			if((a==1)&&(d==1)&&(g==0)&&(temp=='')) temp="G";
+			if((a==1)&&(d==0)&&(g==1)&&(temp=='')) temp="D";
+			if((a==0)&&(d==1)&&(g==1)&&(temp=='')) temp="A";
+			if((h==1)&&(e==1)&&(b==0)&&(temp=='')) temp="B";
+			if((e==0)&&(b==1)&&(h==1)&&(temp=='')) temp="E";
+			if((e==1)&&(b==1)&&(h==0)&&(temp=='')) temp="H";
+			if((i==1)&&(f==1)&&(c==0)&&(temp=='')) temp="C";
+			if((i==1)&&(c==1)&&(f==0)&&(temp=='')) temp="F";
+			if((c==1)&&(f==1)&&(i==0)&&(temp=='')) temp="I";
+			if((e==1)&&(f==1)&&(d==0)&&(temp=='')) temp="D";
+			if((d==1)&&(f==1)&&(e==0)&&(temp=='')) temp="E";
+			if((d==1)&&(e==1)&&(f==0)&&(temp=='')) temp="F";
+			if((i==1)&&(h==1)&&(g==0)&&(temp=='')) temp="G";
+			if((g==1)&&(i==1)&&(h==0)&&(temp=='')) temp="H";
+			if((g==1)&&(h==1)&&(i==0)&&(temp=='')) temp="I";
+			if((e==1)&&(i==1)&&(a==0)&&(temp=='')) temp="A";
+			if((a==1)&&(i==1)&&(e==0)&&(temp=='')) temp="E";
+			if((e==1)&&(a==1)&&(i==0)&&(temp=='')) temp="I";
+			if((g==1)&&(e==1)&&(c==0)&&(temp=='')) temp="C";
+			if((g==1)&&(c==1)&&(e==0)&&(temp=='')) temp="E";
+			if((c==1)&&(e==1)&&(g==0)&&(temp=='')) temp="G";
+		
+		}//function computer_move ends
+		
+		function computer_winning_move(){
+			if((a==2)&&(b==2)&&(c==0)&&(temp=='')) temp="C";
+			if((a==2)&&(b==0)&&(c==2)&&(temp=='')) temp="B";
+			if((a==0)&&(b==2)&&(c==2)&&(temp=='')) temp="A";
+			if((a==2)&&(d==2)&&(g==0)&&(temp=='')) temp="G";
+			if((a==2)&&(d==0)&&(g==2)&&(temp=='')) temp="D";
+			if((a==0)&&(d==2)&&(g==2)&&(temp=='')) temp="A";
+			if((h==2)&&(e==2)&&(b==0)&&(temp=='')) temp="B";
+			if((e==0)&&(b==2)&&(h==2)&&(temp=='')) temp="E";
+			if((e==2)&&(b==2)&&(h==0)&&(temp=='')) temp="H";
+			if((i==2)&&(f==2)&&(c==0)&&(temp=='')) temp="C";
+			if((i==2)&&(c==2)&&(f==0)&&(temp=='')) temp="F";
+			if((c==2)&&(f==2)&&(i==0)&&(temp=='')) temp="I";
+			if((e==2)&&(f==2)&&(d==0)&&(temp=='')) temp="D";
+			if((d==2)&&(f==2)&&(e==0)&&(temp=='')) temp="E";
+			if((d==2)&&(e==2)&&(f==0)&&(temp=='')) temp="F";
+			if((i==2)&&(h==2)&&(g==0)&&(temp=='')) temp="G";
+			if((g==2)&&(i==2)&&(h==0)&&(temp=='')) temp="H";
+			if((g==2)&&(h==2)&&(i==0)&&(temp=='')) temp="I";
+			if((e==2)&&(i==2)&&(a==0)&&(temp=='')) temp="A";
+			if((a==2)&&(i==2)&&(e==0)&&(temp=='')) temp="E";
+			if((e==2)&&(a==2)&&(i==0)&&(temp=='')) temp="I";
+			if((g==2)&&(e==2)&&(c==0)&&(temp=='')) temp="C";
+			if((g==2)&&(c==2)&&(e==0)&&(temp=='')) temp="E";
+			if((c==2)&&(e==2)&&(g==0)&&(temp=='')) temp="G";
+			
+			}//computer_against_move ends
+
+			function computer_move(){
+				temp="";
+				ok=0;
+				computer_winning_move();
+				check_space();
+				
+				if(ok==0){
+					computer_against_move();
+					check_space();
+						if(ok==0)
+							{computer_random_move();
+							}	
+					}
+				
+				document.getElementById(temp).src= "x.png";
+				whose_move=1;
+				process();
+				
+				}//computer_move ends
+
+
+	</script>
+    
+    
+
+<div id="head">Let the game begin!!</div>
+
+</head>
+
+<body>
+
+		<!--table for game-->
+<table align="center" id="game_table">
+
+	<tr>
+    		<td style="background-color:#97CBFF;"><a href="javascript:Move('A')"><img src="" width="100px" height="100px" id="A"/></a></td>
+            <td ><a href="javascript:Move('B')"><img src="" width="100px" height="100px" id="B"/></a></td>
+            <td style="background-color:#97CBFF;"><a href="javascript:Move('C')"><img src="" width="100px" height="100px" id="C"/></a></td>
+            
+    
+    </tr>
+    <tr>
+    		<td ><a href="javascript:Move('D')"><img src="" width="100px" height="100px" id="D"/></a></td>
+            <td style="background-color:#97CBFF;"><a href="javascript:Move('E')"><img src="" width="100px" height="100px" id="E"/></a></td>
+            <td ><a href="javascript:Move('F')"><img src="" width="100px" height="100px" id="F"/></a></td>
+    
+    </tr>
+    <tr>
+    		<td style="background-color:#97CBFF;"><a href="javascript:Move('G')"><img src="" width="100px" height="100px" id="G"/></a></td>
+            <td ><a href="javascript:Move('H')"><img src="" width="100px" height="100px" id="H"/></a></td>
+            <td style="background-color:#97CBFF;"><a href="javascript:Move('I')"><img src="" width="100px" height="100px" id="I"/></a></td>
+    
+    </tr>
+    
+  
+  			<!--showing status-->
+   
+		<table id="wins" align="center">
+       <center> <a style="font-family:'Comic Sans MS', cursive; color:#06F;">No of wins of player 1,Computer and ties!</a></center>
+		<tr><td><input type="text" size="5" id="player1" value="0" ></td><td>Player1</td></tr>
+		<tr><td><input type="text" size="5" id="player2" value="0" ></td><td>Computer</td></tr>
+		<tr><td><input type="text" size="5" id="ties" value="0" ></td><td>Tie</td></tr>
+		</table>
+        
+</table>
+
+
+
+
+			<!--button for help and restore-->
+<center>
+		<input type="button" value="How to play?" id="help" style="color:#903; width:100px; height:40px; margin-top:20px;"  onClick="help();">
+        <input type="button" value="Play Again" id="reset" style="color:#30C; width:100px; height:40px;" onClick="playAgain();"/>
+</center>        
+
+
+</body>
+</html>
